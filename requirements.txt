@@ -1,6 +1,6 @@
 scikit-image
 numpy
-cv2
+opencv-python
 imutils
 tensorflow
 flask
