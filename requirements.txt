@@ -1,0 +1,8 @@
+scikit-image
+numpy
+cv2
+imutils
+tensorflow
+flask
+werkzeug
+gevent
