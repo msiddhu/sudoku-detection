@@ -1,6 +1,7 @@
 scikit-image
 numpy
 opencv-python
+tensorflow
 imutils
 Flask
 werkzeug
