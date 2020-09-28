@@ -4,8 +4,8 @@ import re
 import cv2
 import imutils
 import numpy as np
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array
+from keras.models import load_model
+from keras.preprocessing.image import img_to_array
 
 # construct the argument parser and parse the arguments
 from extractcell import extractDigit
@@ -42,7 +42,7 @@ def getsolution(file_path) :
     image = cv2.imread(file_path)
     image = imutils.resize(image, width=600)
     # find the puzzle in the image and then
-    (puzzleImage, warped) = findPuzzle(image, debug=0)
+    (puzzleImage, warped) = findPuzzle(image)
     # initialize our 9x9 Sudoku board
     board = np.zeros((9, 9), dtype="int")
     # a Sudoku puzzle is a 9x9 grid (81 individual cells), so we can

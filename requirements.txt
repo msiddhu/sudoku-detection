@@ -2,6 +2,6 @@ scikit-image
 numpy
 opencv-python
 imutils
-tensorflow
 Flask
 werkzeug
+keras
