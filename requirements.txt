@@ -3,6 +3,5 @@ numpy
 opencv-python
 imutils
 tensorflow
-flask
+Flask
 werkzeug
-gevent
