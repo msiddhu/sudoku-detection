@@ -5,4 +5,3 @@ tensorflow==2.2.0
 imutils
 Flask
 werkzeug
-keras
