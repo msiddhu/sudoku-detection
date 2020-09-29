@@ -1,7 +1,8 @@
 scikit-image
-numpy
+numpy==1.19.0
 opencv-python
 tensorflow-cpu
 imutils
 Flask
 werkzeug
+importlib

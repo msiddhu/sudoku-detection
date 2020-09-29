@@ -13,7 +13,7 @@ import numpy as np
 # from keras.preprocessing import image
 
 # Flask utils
-from Flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 #from gevent.pywsgi import WSGIServer
 
