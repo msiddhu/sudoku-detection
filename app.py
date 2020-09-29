@@ -78,11 +78,11 @@ def siddhu() :
 def upload() :
     if request.method == 'POST' :
         # Get the file from post request
-        f = request.files['file']
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
-            basepath, 'uploads', secure_filename(f.filename))
-        f.save(file_path)
+        # f = request.files['file']
+        # basepath = os.path.dirname(__file__)
+        # file_path = os.path.join(
+        #     basepath, 'uploads', secure_filename(f.filename))
+        #f.save(file_path)
         # preds = model_predict(file_path, model)
         img = Image.open(request.files['file']).convert('RGB')
         image = np.array(img,dtype=np.uint8)
