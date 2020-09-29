@@ -1,8 +1,9 @@
 scikit-image
-numpy==1.19.0
+numpy==1.18.5
 opencv-python-headless
 tensorflow-cpu
 imutils
 Flask
+keras
 gunicorn
 werkzeug
