@@ -6,11 +6,14 @@ import imutils
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing.image import img_to_array
+from codes.backtrack import  sudosolve
+from codes.extractcell import extractDigit
+from codes.findpuzzle import findPuzzle
 
 # construct the argument parser and parse the arguments
-from extractcell import extractDigit
-from findpuzzle import findPuzzle
-from backtrack import sudosolve
+# from extractcell import extractDigit
+# from findpuzzle import findPuzzle
+# from backtrack import sudosolve
 
 """
 cmd:    python solver.py --model output --image image\img2.jpg --debug 1
@@ -94,5 +97,5 @@ def getsolution(image) :
     # puzzle.show()
     # solve the Sudoku puzzle
     board = sudosolve(board)
-    print(board)
+    #print(board)
     return np.array_str(board)

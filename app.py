@@ -1,12 +1,10 @@
 from __future__ import division, print_function
 
-import io
-
-import boto
-import cv2
 from PIL import Image
 
-from solver import getsolution
+
+
+from codes.solver import getsolution
 # coding=utf-8
 import sys
 import os
@@ -14,15 +12,12 @@ import glob
 import re
 import numpy as np
 
-import boto3
-from config import S3_BUCKET, S3_KEY, S3_SECRET
 # Keras
 # from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # from keras.models import load_model
 # from keras.preprocessing import image
 
 # Flask utils
-import magic
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 #from gevent.pywsgi import WSGIServer
