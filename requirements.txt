@@ -1,6 +1,6 @@
 scikit-image
 numpy==1.19.0
-opencv-python
+opencv-python-headless
 tensorflow-cpu
 imutils
 Flask
