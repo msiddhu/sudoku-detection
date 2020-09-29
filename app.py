@@ -1,4 +1,11 @@
 from __future__ import division, print_function
+
+import io
+
+import boto
+import cv2
+from PIL import Image
+
 from solver import getsolution
 # coding=utf-8
 import sys
@@ -7,15 +14,20 @@ import glob
 import re
 import numpy as np
 
+import boto3
+from config import S3_BUCKET, S3_KEY, S3_SECRET
 # Keras
 # from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # from keras.models import load_model
 # from keras.preprocessing import image
 
 # Flask utils
+import magic
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 #from gevent.pywsgi import WSGIServer
+
+
 
 # Define a flask app
 app = Flask(__name__)
@@ -72,23 +84,29 @@ def upload() :
     if request.method == 'POST' :
         # Get the file from post request
         f = request.files['file']
-
-        # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
             basepath, 'uploads', secure_filename(f.filename))
         f.save(file_path)
-
-        # Make prediction
         # preds = model_predict(file_path, model)
-
+        img = Image.open(request.files['file']).convert('RGB')
+        image = np.array(img,dtype=np.uint8)
+        image = image[:, :, : :-1].copy()
+       # img = np.array(img,dtype=np.uint8)
+        #img = cv2.resize(img, (512, 512))
+        #img = cv2.imdecode(npimg, cv2.CV_LOAD_IMAGE_UNCHANGED)
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
         # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         # result = str(pred_class[0][0][1])
         # Convert to string
-        result = getsolution(file_path)
+        # result = getsolution(file_path)
+
+        #result=f.readlines()
+
+        result = getsolution(image)
         return result
+       # return  np.array_str(img, precision = 2, suppress_small = True)
     return None
 
 

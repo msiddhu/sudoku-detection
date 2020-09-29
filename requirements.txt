@@ -7,3 +7,5 @@ Flask
 keras
 gunicorn
 werkzeug
+boto3
+Pillow

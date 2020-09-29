@@ -8,7 +8,7 @@ import cv2
 
 
 def findPuzzle(image):
-    image = cv2.resize(image, (1024, 1024))
+    image = cv2.resize(image, (512, 512))
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(gray, (7, 7), 3)
     # apply adaptive thresholding and then invert the threshold map

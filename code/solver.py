@@ -32,14 +32,17 @@ args = vars(ap.parse_args())
 """
 
 
-def getsolution(file_path) :
+#def getsolution(file_path) :
+def getsolution(image) :
+    #image = np.fromstring(file_path, np.uint8).reshape(512, 512)
     model = load_model('scnn.h5')
     # load the input image from disk and resize it
 
     # image = cv2.imread(args["image"])
 
     # image = cv2.imread('images/img6.jpeg')
-    image = cv2.imread(file_path)
+    #print(file_path)
+    #image = cv2.imread(file_path)
     image = imutils.resize(image, width=600)
     # find the puzzle in the image and then
     (puzzleImage, warped) = findPuzzle(image)
@@ -69,7 +72,7 @@ def getsolution(file_path) :
             # extract the digit from the cell
             cell = warped[startY :endY, startX :endX]
 
-            digit = extractDigit(cell, x, y, debug=0)
+            digit = extractDigit(cell)
             # plt.imsave('{}{}.jpg'.format(startX, endY), digit)
             # verify that the digit is not empty
             if digit is not None :
