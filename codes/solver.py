@@ -10,6 +10,7 @@ from codes.backtrack import  sudosolve
 from codes.extractcell import extractDigit
 from codes.findpuzzle import findPuzzle
 
+
 # construct the argument parser and parse the arguments
 # from extractcell import extractDigit
 # from findpuzzle import findPuzzle
@@ -38,7 +39,7 @@ args = vars(ap.parse_args())
 #def getsolution(file_path) :
 def getsolution(image) :
     #image = np.fromstring(file_path, np.uint8).reshape(512, 512)
-    model = load_model('scnn.h5')
+    model = load_model('codes/scnn.h5')
     # load the input image from disk and resize it
 
     # image = cv2.imread(args["image"])
