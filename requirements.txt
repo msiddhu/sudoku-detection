@@ -4,4 +4,5 @@ opencv-python
 tensorflow-cpu
 imutils
 Flask
+gunicorn
 werkzeug
