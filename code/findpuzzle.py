@@ -18,10 +18,6 @@ def findPuzzle(image):
 
     # convert the image to grayscale and blur it slightly
     # thresh=preprocess(image)
-
-    # check to see if we are visualizing each step of the image
-    # processing pipeline (in this case, thresholding)
-    # if debug:
     #     cv2.imshow("Puzzle Thresh", thresh)
     #     cv2.waitKey(0)
         # find contours in the thresholded image and sort them by size in
@@ -44,28 +40,20 @@ def findPuzzle(image):
         if len(approx) == 4:
          puzzleCnt = approx
          break
-        print('BAD')
-        # if the puzzle contour is empty then our script could not find
-        # the outline of the Sudoku puzzle so raise an error
+        #print('BAD')
     if puzzleCnt is None:
      raise Exception(("Could not find Sudoku puzzle outline. "
                              "Try debugging your thresholding and contour steps."))
      # check to see if we are visualizing the outline of the detected
         # Sudoku puzzle
-
-        # draw the contour of the puzzle on the image and then display
-        # it to our screen for visualization/debugging purposes
     output = image.copy()
     cv2.drawContours(output, [puzzleCnt], -1, (0, 255, 0), 2)
-    # if debug:
+
     #  plt.imshow(output)
     #  cv2.imshow("Puzzle Outline", output)
     #  cv2.waitKey(0)
     puzzle = four_point_transform(image, puzzleCnt.reshape(4, 2))
     warped = four_point_transform(gray, puzzleCnt.reshape(4, 2))
-        # check to see if we are visualizing the perspective transform
-    # if debug:
-    #         # show the output warped image (again, for debugging purposes)
     #  cv2.imshow("Puzzle Transform", puzzle)
     #  cv2.waitKey(0)
         # return a 2-tuple of puzzle in both RGB and grayscale
